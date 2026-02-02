@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&display=swap");
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 :root {
   --font-size: 16px;
@@ -123,7 +123,26 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: rgb(59 130 246 / 0.5);
+    ul,
+    ol {
+      list-style: none;
+      /* margin: 0; */
+      padding: 0;
+      display: inline-flex;
+    }
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    border-color: var(--color-border);
+    outline-color: rgb(59 130 246 / 0.5);
     ul,
     ol {
       list-style: none;
@@ -131,10 +150,6 @@
       padding: 0;
       display: inline-flex;
     }
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 
   /**
@@ -206,7 +221,7 @@
   font-weight: 600;
   font-family: "DM Serif Display", serif;
   color: var(--secondary-foreground);
-  text-decoration-line: none
+  text-decoration-line: none;
 }
 
 /* Nav items */
@@ -240,11 +255,15 @@
 }
 
 .hero {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 500px;
+  min-height: 500px; /* keep the visual height but allow flexibility */
   position: relative;
-  overflow: hidden; /* ensures stars stay inside */
+  overflow: hidden;
+  font-size: 90px;
+  color: var(--chart-2);
 }
 
 .diagonal-hero-bg {
@@ -257,4 +276,208 @@
   background: linear-gradient(to right, #1e3a8a, #3b82f6); /* gradient */
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+.footer {
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  padding: 3rem 1.5rem 1.5rem;
+  /* FIX STARTS HERE */
+  box-sizing: border-box; 
+  margin: 0;
+  overflow-x: hidden; /* Prevents stray elements from pushing the width */
+}
+
+/* Also, ensure your global styles reset box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%; 
+}
+
+/* Left side navigation */
+.footer-nav {
+  flex: 1;
+  min-width: 200px;
+}
+.footer-nav h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.nav-list {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Forces items into different lines */
+  gap: 12px; /* Adds vertical space between the links */
+}
+
+.nav-item a {
+  display: block; /* Makes the whole line clickable */
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item a:hover {
+  color: white;
+  padding-left: 5px; /* Subtle hover effect moving text to the right */
+}
+
+/* Container and Background */
+.footer {
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Layout Parts */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-form {
+  flex: 1; /* Changed from 2 to 1 to be more flexible */
+  min-width: 0; /* Allows the form to shrink on very small screens */
+  width: 100%;
+}
+/* Shared Header Styles */
+.footer-nav h3, 
+.footer-form h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Navigation - Forced to separate lines */
+.footer-nav {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-block;
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+/* Contact Form */
+.footer-form {
+  flex: 2;
+  min-width: 300px;
+}
+
+.form-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-form input, 
+.footer-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+}
+
+.footer-form input::placeholder, 
+.footer-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-form button {
+  background-color: white;
+  color: #2563eb;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.footer-form button:hover {
+  transform: scale(1.05);
+}
+
+/* Socials & Divider */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.75rem;
+  margin: 2rem 0;
+}
+
+.footer-socials a {
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.footer-socials a:hover { opacity: 0.7; }
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.copyright-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .footer-top, .form-group {
+    flex-direction: column;
+  }
 }
