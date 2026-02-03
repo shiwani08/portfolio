@@ -1,0 +1,135 @@
+.timeline-section {
+  width: 100vw; 
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 80px 0; 
+  /* background-color: var(--background);  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden; 
+}
+
+.timeline-main-title {
+  font-size: 2rem;
+  color: var(--background); ;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.ladder-container {
+  position: relative;
+  /* max-width: 1000px; */
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* The vertical line in the middle */
+.ladder-rail {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--border));
+  transform: translateX(-50%);
+}
+
+.ladder-step {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+/* Alternate sides */
+.ladder-step:nth-child(even) {
+  left: 0;
+  text-align: right;
+}
+
+.ladder-step:nth-child(odd) {
+  left: 50%;
+  text-align: left;
+}
+
+/* The dot on the rail */
+.ladder-node {
+  position: absolute;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--background);
+  border: 3px solid var(--accent); /* Electric Cyan */
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ladder-step:nth-child(even) .ladder-node {
+  right: -8px;
+}
+
+.ladder-step:nth-child(odd) .ladder-node {
+  left: -8px;
+}
+
+/* Content Styling */
+.step-content {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+}
+
+.step-content:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.step-date {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.step-location {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* Responsive: Mobile Ladder */
+@media (max-width: 768px) {
+  .ladder-rail {
+    left: 20px;
+  }
+  
+  .ladder-step {
+    width: 100%;
+    left: 0 !important;
+    padding: 20px 20px 20px 50px;
+    text-align: left !important;
+  }
+  
+  .ladder-node {
+    left: 12px !important;
+  }
+}

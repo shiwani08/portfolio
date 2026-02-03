@@ -4,80 +4,64 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #1e3a8a;
+  
+  /* Background & Base: Very dark cold slate/navy */
+  --background: #020617; 
+  --foreground: #0c3f71;
+  
+  /* Cards & UI Elements: Deep midnight */
+  --card: #0f172a;
+  --card-foreground: #f1f5f9;
+  --popover: #0f172a;
+  --popover-foreground: #f1f5f9;
+  
+  /* Primary: High-contrast Cold Dark Blue */
+  --primary: #1e40af; 
   --primary-foreground: #ffffff;
-  --secondary: #3b82f6;
-  --secondary-foreground: #ffffff;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #60a5fa;
+  
+  /* Secondary: Cool Slate */
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  
+  /* Muted: Desaturated blue-greys */
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  
+  /* Accent: Electric Cyan (Terminal/Code vibe) */
+  --accent: #0ea5e9;
   --accent-foreground: #ffffff;
-  --destructive: #d4183d;
+  
+  /* Destructive: Replaced Red with a deep Indigo/Violet tone to keep it "Cold" */
+  --destructive: #4338ca;
   --destructive-foreground: #ffffff;
-  --border: rgba(30, 58, 138, 0.1);
+  
+  /* Borders & Inputs */
+  --border: rgba(51, 65, 85, 0.5);
   --input: transparent;
-  --input-background: #f8fafc;
-  --switch-background: #cbd5e1;
+  --input-background: #0f172a;
+  --switch-background: #aeafb1;
+  
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #3b82f6;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #0ea5e9;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Chart Colors: All cool tones (Blues, Cyans, Teals, Purples) */
+  --chart-1: #0ea5e9; /* Sky Blue */
+  --chart-2: #10b981; /* Emerald Teal */
+  --chart-3: #6366f1; /* Indigo */
+  --chart-4: #2dd4bf; /* Mint/Teal */
+  --chart-5: #3b82f6; /* Royal Blue */
+
+  /* Sidebar */
+  --sidebar: #020617;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #1e40af;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #334155;
+  --sidebar-ring: #0ea5e9;
 }
 
 @theme inline {
@@ -204,14 +188,18 @@
   }
 }
 
+.section-title {
+  font-size: 50px;
+  text-align: center;
+  font-family: cursive;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 4vw, 3rem);
   background-color: var(--color-foreground);
-
   gap: 1rem;
 }
 
@@ -228,7 +216,6 @@
 .nav-right {
   display: flex;
   align-items: center;
-
   gap: clamp(1rem, 3vw, 3rem);
 }
 
@@ -236,10 +223,8 @@
 .nav-right li a {
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 500;
-
   color: var(--switch-background);
   text-decoration: none;
-
   transition: color 0.25s ease;
 }
 
@@ -264,6 +249,7 @@
   overflow: hidden;
   font-size: 90px;
   color: var(--chart-2);
+  /* background-color: var(--background); */
 }
 
 .diagonal-hero-bg {
@@ -273,14 +259,24 @@
   width: 100%;
   height: 500px;
   background: #1e3a8a; /* base color */
-  background: linear-gradient(to right, #1e3a8a, #3b82f6); /* gradient */
+  background: linear-gradient(
+    135deg, 
+    #020617 0%,    /* var(--background) */
+    #0f172a 50%,   /* var(--card) */
+    #020617 100%
+  ); /* gradient */
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
 }
 
 .footer {
   width: 100%;
-  background-color: #2563eb;
+  background: linear-gradient(
+    135deg, 
+    #020617 0%,    /* var(--background) */
+    #0f172a 50%,   /* var(--card) */
+    #020617 100%
+  );
   color: white;
   padding: 3rem 1.5rem 1.5rem;
   /* FIX STARTS HERE */
@@ -432,6 +428,7 @@
 .footer-form button {
   background-color: white;
   color: #2563eb;
+  margin-top: 0.5rem;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 6px;
@@ -448,17 +445,20 @@
 .footer-socials {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  font-size: 1.75rem;
+  gap: 1.5rem;
   margin: 2rem 0;
 }
 
 .footer-socials a {
-  color: white;
-  transition: opacity 0.3s;
+  color: var(--muted-foreground);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.footer-socials a:hover { opacity: 0.7; }
+.footer-socials a:hover {
+  color: var(--accent); /* Electric Cyan from your theme */
+  transform: translateY(-3px);
+}
 
 .footer-divider {
   border: 0;
@@ -479,5 +479,56 @@
 @media (max-width: 768px) {
   .footer-top, .form-group {
     flex-direction: column;
+  }
+}
+
+.about-section {
+  width: 100%;
+  min-height: 60vh; /* Keeps it centered vertically in the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px; /* Vertical and Horizontal padding */
+  /* background-color: var(--secondary-foreground); */
+  box-sizing: border-box;
+}
+
+.about-container {
+  max-width: 800px; /* Limits width to help force 4 lines */
+  width: 100%;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+}
+
+.about-text {
+  font-size: 1.25rem;
+  line-height: 1.8; /* Increased line-height for readability */
+  color: var(--muted-foreground);
+  margin: 0 auto;
+  /* Standardizing line distribution */
+  max-width: 65ch; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 20px;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    /* On mobile, text naturally takes more lines, so we let it flow */
+    max-width: 100%;
   }
 }
