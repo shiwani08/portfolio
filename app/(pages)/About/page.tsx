@@ -15,7 +15,7 @@ export default function About() {
     <section id="About" className="about-section">
       <div className="about-container">
         <motion.h2 
-          className="about-title"
+          className="section-title text-#0c3f71"
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}

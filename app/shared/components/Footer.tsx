@@ -8,7 +8,7 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faBookmark, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "lucide-react";
+import Link from "next/link";
 // import { BiSubstack } from 'react-icons/bi';
 
 export function Footer() {
