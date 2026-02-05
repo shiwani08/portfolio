@@ -15,7 +15,7 @@ import "swiper/css/pagination";
 
 export default function Projects() {
   return (
-    <section className="projects-section bg-[#020617] py-20">
+    <section className="projects-section py-20">
       <h2 className="section-title text-white mb-10">Featured Projects</h2>
       
       <Swiper
