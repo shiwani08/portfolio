@@ -6,6 +6,8 @@ import {
   faGithub,
   faLinkedin,
   faXTwitter,
+  faHashnode,
+  faDev,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode, faBookmark, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -100,6 +102,24 @@ export function Footer() {
             aria-label="LeetCode"
           >
             <FontAwesomeIcon icon={faCode} />
+          </Link>
+            
+          {/* Hashnode */}
+          <Link
+            href="https://hashnode.com/@shiwani08"
+            target="_blank"
+            aria-label="Hashnode"
+          >
+            <FontAwesomeIcon icon={faHashnode} />
+          </Link>
+          
+          {/* DevTo */}
+          <Link
+            href="https://dev.to/shiwani08"
+            target="_blank"
+            aria-label="DevTo"
+          >
+            <FontAwesomeIcon icon={faDev} />
           </Link>
         </div>
 
