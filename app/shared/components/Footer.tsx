@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
@@ -9,9 +11,12 @@ import {
   faHashnode,
   faDev,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCode, faBookmark, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-// import { BiSubstack } from 'react-icons/bi';
+import {
+  faCode,
+  faBookmark,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import "../../shared/styles/Footer.css";
 
 export function Footer() {
   const navItems = [
@@ -24,9 +29,10 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-top">
+        {/* NEW WRAPPER: Navigation (Left) and Image (Right) */}
+        <div className="footer-main-content">
           <div className="footer-nav">
-            <h3>Navigation</h3>
+            <h3>Quick Links</h3>
             <ul>
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -36,30 +42,29 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="footer-form">
-            <h3>Contact Me</h3>
-            <form>
-              <div className="form-group">
-                <input type="text" placeholder="Name" required />
-                <input type="email" placeholder="Email" required />
-              </div>
-              <textarea placeholder="Your thoughts..." rows={3} required />
-              <button type="submit">Send</button>
-            </form>
+          <div className="footer-gratitude-section">
+            <h3 className="gratitude-heading">Gratitude</h3>
+            <p className="gratitude-text">
+              Thank you for visiting my portfolio! I hope you found it
+              insightful and engaging. If you have any questions, feedback, or
+              just want to say hi, feel free to reach out through the contact
+              form or connect with me on social media. Your support means a lot
+              to me, and I'm always eager to connect with fellow developers,
+              tech enthusiasts, and potential collaborators. Looking forward to
+              hearing from you soon!
+            </p>
           </div>
         </div>
 
+        {/* Socials Section - Stays Unchanged in layout */}
         <div className="footer-socials">
-          {/* Mail */}
           <Link
             href="mailto:shiwani.sonii08@gmail.com"
             target="_blank"
-            aria-label="GitHub"
+            aria-label="Email"
           >
             <FontAwesomeIcon icon={faEnvelope} />
           </Link>
-
-          {/* GitHub */}
           <Link
             href="https://github.com/shiwani08"
             target="_blank"
@@ -67,26 +72,20 @@ export function Footer() {
           >
             <FontAwesomeIcon icon={faGithub} />
           </Link>
-
-          {/* X (Twitter) */}
           <Link
             href="https://x.com/budastrophile"
             target="_blank"
-            aria-label="X (Twitter)"
+            aria-label="X"
           >
             <FontAwesomeIcon icon={faXTwitter} />
           </Link>
-
-          {/* Substack */}
           <Link
-            href="https://substack.com/@astudentsnotepad?utm_campaign=profile&utm_medium=profile-page"
+            href="https://substack.com/@astudentsnotepad"
             target="_blank"
             aria-label="Substack"
           >
             <FontAwesomeIcon icon={faBookmark} />
           </Link>
-
-          {/* LinkedIn */}
           <Link
             href="https://www.linkedin.com/in/shiwani-soni-a33b8a21b/"
             target="_blank"
@@ -94,8 +93,6 @@ export function Footer() {
           >
             <FontAwesomeIcon icon={faLinkedin} />
           </Link>
-
-          {/* LeetCode */}
           <Link
             href="https://leetcode.com/u/geekordian/"
             target="_blank"
@@ -103,8 +100,6 @@ export function Footer() {
           >
             <FontAwesomeIcon icon={faCode} />
           </Link>
-            
-          {/* Hashnode */}
           <Link
             href="https://hashnode.com/@shiwani08"
             target="_blank"
@@ -112,8 +107,6 @@ export function Footer() {
           >
             <FontAwesomeIcon icon={faHashnode} />
           </Link>
-          
-          {/* DevTo */}
           <Link
             href="https://dev.to/shiwani08"
             target="_blank"

@@ -1,106 +1,89 @@
+/* Base Footer Styles */
 .footer {
   width: 100%;
-  background-color: var(--background);
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
   color: white;
   padding: 3rem 1.5rem 1.5rem;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Layout Parts */
-.footer-top {
+/* Side-by-Side Wrapper: Nav (Left) & Image (Right) */
+.footer-main-content {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 2rem;
   margin-bottom: 2rem;
-}
-.footer-form {
-  flex: 1; /* Changed from 2 to 1 to be more flexible */
-  min-width: 0; /* Allows the form to shrink on very small screens */
   width: 100%;
 }
-/* Shared Header Styles */
-.footer-nav h3, 
-.footer-form h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
 
-/* Navigation - Forced to separate lines */
+/* Left side navigation */
 .footer-nav {
   flex: 1;
   min-width: 200px;
+  text-align: left;
+}
+
+.footer-nav h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: white;
 }
 
 .footer-nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 12px;
+  font-size: 10px;
 }
 
 .footer-nav a {
+  display: inline-block;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s;
-  display: inline-block;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .footer-nav a:hover {
   color: white;
+  padding-left: 5px; /* Subtle hover effect */
 }
 
-/* Contact Form */
-.footer-form {
-  flex: 2;
-  min-width: 300px;
-}
-
-.form-group {
+/* Right Side Image */
+.footer-text-container {
+  flex: 1;
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
-.footer-form input, 
-.footer-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  outline: none;
+.footer-image {
+  height: auto;
+  max-width: 450px;
+  width: 150%;
 }
 
-.footer-form input::placeholder, 
-.footer-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-form button {
-  background-color: white;
-  color: #2563eb;
-  margin-top: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.footer-form button:hover {
-  transform: scale(1.05);
-}
-
-/* Socials & Divider */
+/* Socials & Divider (Unchanged Layout) */
 .footer-socials {
   display: flex;
   justify-content: center;
@@ -109,13 +92,13 @@
 }
 
 .footer-socials a {
-  color: var(--muted-foreground);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .footer-socials a:hover {
-  color: var(--accent); /* Electric Cyan from your theme */
+  color: white;
   transform: translateY(-3px);
 }
 
@@ -129,14 +112,64 @@
   text-align: center;
 }
 
+.footer-gratitude-section {
+  margin-bottom: 2.5rem;
+  text-align: left; /* Aligns with your Navigation links */
+}
+
+.gratitude-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Optional: Adds a small accent line under 'Gratitude' */
+.gratitude-heading::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #8b5cf6; /* Matching your purple accent */
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.gratitude-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 80ch; /* Prevents lines from getting too long for the eye to track */
+}
+
+
 .copyright-text {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Mobile Adjustments */
+/* Mobile View: Stack Everything */
 @media (max-width: 768px) {
-  .footer-top, .form-group {
+  .footer-main-content {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-nav {
+    text-align: center;
+  }
+
+  .footer-gratitude-section {
+    text-align: center;
+  }
+  
+  .gratitude-heading::after {
+    margin: 8px auto 0; /* Centers the accent line on mobile */
+  }
+
+  .footer-image {
+    max-width: 250px;
   }
 }
+

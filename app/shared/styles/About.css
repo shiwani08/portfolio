@@ -1,0 +1,75 @@
+.about-section {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  box-sizing: border-box;
+}
+
+.about-container {
+  max-width: 1000px; /* Increased slightly to accommodate side-by-side layout */
+  width: 100%;
+  text-align: center;
+}
+
+/* NEW: The wrapper for text and image */
+.about-content-wrapper {
+  display: flex;
+  flex-direction: row; /* Desktop: side-by-side */
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 4rem; /* Space before Timeline */
+  text-align: left; /* Align text to left on desktop */
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 2rem;
+}
+
+.about-text {
+  flex: 1; /* Takes up 50% space */
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  max-width: 65ch;
+}
+
+.about-image {
+  flex: 1; /* Takes up 50% space */
+  height: auto;
+  max-width: 400px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-content-wrapper {
+    flex-direction: column; /* Mobile: Stacks vertically */
+    text-align: center; /* Center text on mobile */
+    gap: 20px;
+  }
+
+  .about-section {
+    padding: 60px 20px;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .about-image {
+    order: 2; /* Ensures image comes AFTER text on mobile */
+    max-width: 300px;
+  }
+}

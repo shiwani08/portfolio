@@ -1,0 +1,132 @@
+.contact-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styling */
+.contact-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.contact-header span {
+  color: #8b5cf6; /* Purple color from image */
+}
+
+/* Main Layout */
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  gap: 40px;
+}
+
+.contact-image-side,
+.contact-form-side {
+  flex: 1;
+}
+
+.contact-illustration {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #eef2ff; /* Light blueish tint from image */
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.input-wrapper:focus-within {
+  border-color: #8b5cf6;
+}
+
+.field-icon {
+  position: absolute;
+  left: 15px;
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.textarea-wrapper {
+  align-items: flex-start;
+}
+
+.textarea-wrapper .field-icon {
+  top: 18px;
+}
+
+/* Submit Button */
+.submit-btn {
+  align-self: flex-end;
+  background: #251fc4; /* Deep blue/purple button */
+  color: white;
+  padding: 0.8rem 2.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background 0.3s;
+  box-shadow: 0 4px 12px rgba(37, 31, 196, 0.3);
+}
+
+.submit-btn:hover {
+  background: #1e19a3;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .contact-image-side {
+    order: 2; /* Image goes below form on mobile */
+  }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

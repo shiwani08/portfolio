@@ -1,37 +1,59 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHammer } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faEnvelope, faPhone, faCommentDots, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import '../../shared/styles/Contact.css';
 
 export default function Contact() {
-  const router = useRouter();
-
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-white px-4 text-center">
-      {/* Icon Container */}
-      <div className="text-6xl text-blue-600 mb-6">
-        <FontAwesomeIcon icon={faHammer} bounce />
+    <section id="Contact" className="contact-section">
+      <div className="contact-header">
+        <h2 className="section-title-">Contact Me</h2>
       </div>
 
-      {/* Text Content */}
-      <div className="space-y-2">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-          Page is in development
-        </h2>
-        <p className="text-lg text-gray-600 max-w-md mx-auto">
-          We&apos;re working hard to bring you something amazing. We&apos;ll be back soon!
-        </p>
-      </div>
+      <div className="contact-container">
+        {/* Left Side: Illustration */}
+        <div className="contact-image-side">
+          <Image 
+            src="/mail.svg" // Replace with your actual image path
+            alt="Person working at desk" 
+            width={500} 
+            height={400} 
+            className="contact-illustration"
+          />
+        </div>
 
-      {/* Simple Button */}
-      <button
-        onClick={() => router.push("/")}
-        className="mt-8 px-6 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors shadow-sm"
-      >
-        Back to Home
-      </button>
-    </main>
+        {/* Right Side: Form */}
+        <div className="contact-form-side">
+          <form className="contact-form">
+            <div className="input-wrapper">
+              <FontAwesomeIcon icon={faUser} className="field-icon" />
+              <input type="text" placeholder="Name" required />
+            </div>
+
+            <div className="input-wrapper">
+              <FontAwesomeIcon icon={faEnvelope} className="field-icon" />
+              <input type="email" placeholder="Email" required />
+            </div>
+
+            <div className="input-wrapper">
+              <FontAwesomeIcon icon={faPhone} className="field-icon" />
+              <input type="tel" placeholder="Phone" />
+            </div>
+
+            <div className="input-wrapper textarea-wrapper">
+              <FontAwesomeIcon icon={faCommentDots} className="field-icon" />
+              <textarea placeholder="Message" rows={5} required />
+            </div>
+
+            <button type="submit" className="submit-btn">
+              Submit <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
