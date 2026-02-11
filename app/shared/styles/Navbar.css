@@ -76,6 +76,39 @@
   color: white;
 }
 
+.hero-btns-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 80px;
+  height: 50px;
+}
+
+.resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: var(--accent); /* Uses your cyan/accent color */
+  color: #000;
+  font-weight: 600;
+  font-size: 0.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.15);
+}
+
+.resume-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+.resume-btn:active {
+  transform: translateY(-1px);
+}
+
 @media (min-width: 768px) {
   .hero {
     min-height: 100vh;
@@ -91,5 +124,13 @@
   /* Adjusted the gap for desktop to be wider, remove the display:none */
   .nav-right {
     gap: clamp(1.5rem, 3vw, 3rem); 
+  }
+   .hero-btns-container {
+    justify-content: flex-start;
+  }
+  .resume-btn {
+    width: 100%; /* Full width on very small phones */
+    justify-content: center;
+    padding: 14px 20px;
   }
 }
