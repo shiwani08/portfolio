@@ -5,19 +5,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Parallax, Mousewheel } from "swiper/modules";
 import Image from "next/image";
 import projectData from "./ProjectData";
-import '../../shared/styles/Projects.css'
+import "../../shared/styles/Projects.css";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import "./ExpoSlider.css"; 
+// import "./ExpoSlider.css";
 
 export default function Projects() {
   return (
     <section className="projects-section py-20">
       <h2 className="section-title text-white mb-10">Featured Projects</h2>
-      
+
       <Swiper
         speed={1000}
         parallax={true}
@@ -32,34 +32,43 @@ export default function Projects() {
         {projectData.map((project) => (
           <SwiperSlide key={project.id} className="expo-slide">
             {/* Background Image with Parallax Effect */}
-            <div 
-              className="slide-bg" 
-              data-swiper-parallax="20%"
-            >
-              <Image 
-                src={project.img} 
-                alt={project.title} 
-                fill 
+            <div className="slide-bg" data-swiper-parallax="20%">
+              <Image
+                src={project.img}
+                alt={project.title}
+                fill
                 className="object-cover opacity-60"
               />
             </div>
 
             {/* Content with Different Parallax Speed */}
             <div className="slide-content">
-              <h3 
-                className="slide-title" 
-                data-swiper-parallax="-300"
-              >
-                {project.title}
-              </h3>
-              <p 
-                className="slide-desc" 
-                data-swiper-parallax="-100"
-              >
-                {project.desc}
-              </p>
-              <div data-swiper-parallax="-50">
-                <a href={project.github} target="_blank" className="view-project-btn">
+              {/* Wrap text info to separate it from the button area */}
+              <div className="slide-info-wrapper">
+                <h3 className="slide-title" data-swiper-parallax="-300">
+                  {project.title}
+                </h3>
+                <div className="slide-desc" data-swiper-parallax="-100">
+                  {project.desc}
+                </div>
+              </div>
+
+              {/* Skills container with margin-top and bottom */}
+              <div className="slide-skills" data-swiper-parallax="-200">
+                {project.skills.map((skill, index) => (
+                  <span key={index} className="skill-tag">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              <div className="slide-actions" data-swiper-parallax="-50">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  className="view-project-btn"
+                  rel="noopener noreferrer"
+                >
                   View Repository
                 </a>
               </div>
