@@ -23,9 +23,9 @@ export default function Timeline() {
             viewport={{ once: true }}
           >
             <div className="step-content">
+              <h5 className="step-location">{item.company}</h5>
               <span className="step-date">{item.date}</span>
               <h4 className="step-title">{item.title}</h4>
-              <h5 className="step-location">{item.company}</h5>
               <p className="step-desc">{item.description}</p>
             </div>
             {/* The Rung/Node */}
