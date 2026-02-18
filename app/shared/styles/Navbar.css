@@ -37,6 +37,42 @@
   color: var(--chart-5);
 }
 
+.nav-link {
+  text-decoration: none;
+  color: #333; /* Use your theme color */
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth transition for hover */
+  position: relative;
+}
+
+/* Modern Underline Animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #0070f3; /* Next.js Blue */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0070f3;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Accessibility: Focus state for keyboard users */
+.nav-link:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .code-for-fun {
   font-weight: 600;
   font-size: clamp(5rem, 5vw, 5rem);
