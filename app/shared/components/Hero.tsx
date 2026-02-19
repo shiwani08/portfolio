@@ -1,11 +1,10 @@
 "use client";
 
-import { Mail, Download } from "lucide-react"; // Added Download icon
+import { Mail, Download } from "lucide-react"; 
 import Image from "next/image";
 import { RevealText } from "./animation/Reveal";
 import "../../shared/styles/Navbar.css";
-import "../styles/Navbar.css"; // Ensure you import the new CSS file
-
+import "../styles/Navbar.css"; 
 export function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
