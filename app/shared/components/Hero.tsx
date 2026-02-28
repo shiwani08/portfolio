@@ -111,10 +111,10 @@ export function Hero() {
 
           {/* Social Links */}
           <div className="hero-social">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://github.com/shiwani08" target="_blank" rel="noopener noreferrer" className="social-link">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://www.linkedin.com/in/shiwani-soni-a33b8a21b/" target="_blank" rel="noopener noreferrer" className="social-link">
               <Linkedin size={20} />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">

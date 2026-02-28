@@ -159,7 +159,7 @@ export default function Timeline() {
         </div>
 
         {/* End Marker */}
-        <motion.div
+        {/* <motion.div
           className="timeline-end"
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -170,7 +170,7 @@ export default function Timeline() {
             <Award size={24} />
           </div>
           <p className="end-text">Present Day</p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

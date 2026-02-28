@@ -1,70 +1,185 @@
+/* ============================================
+   Skills Section
+   ============================================ */
+
 .skills-section {
-  padding: 80px 24px;
-  background-color: transparent; /* Adjust based on your hero background */
+  background: #080b0f;
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+  font-family: "DM Mono", "Fira Code", monospace;
 }
 
+/* Background grid */
+.skills-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    black,
+    transparent
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    black,
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Ambient glow */
+.skills-bg-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 300px;
+  background: radial-gradient(
+    ellipse,
+    rgba(99, 102, 241, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ============================================
+   Container
+   ============================================ */
+
 .skills-container {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  text-align: center;
+  position: relative;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+.skills-header {
+  margin-bottom: 64px;
+}
+
+.skills-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .skills-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 48px;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  font-family: "Syne", "DM Mono", monospace;
+  color: #f1f5f9;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin: 0;
 }
+
+.skills-title-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6366f1;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ============================================
+   Grid
+   ============================================ */
 
 .skills-grid {
   display: grid;
-  /* Creates a fluid grid: minimum 120px per item, fills available space */
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 24px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
 }
 
+/* ============================================
+   Skill Card
+   ============================================ */
+
 .skill-card {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  width: 100%;
-  transition: transform 0.3s ease, background 0.3s ease;
+  gap: 14px;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
 }
 
-.skill-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+/* Corner accent overlay */
+.skill-card-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
 }
 
+/* Icon */
 .skill-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+  display: block;
 }
 
+/* Skill name label */
 .skill-name {
-  color: #0f172a;
-  font-size: 0.9rem;
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #64748b;
+  transition: color 0.2s ease;
 }
 
-/* Specific mobile adjustment for very small screens */
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+/* ============================================
+   Footer label
+   ============================================ */
+
+.skills-footer-label {
+  margin-top: 48px;
+  font-size: 11px;
+  color: #334155;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 640px) {
+  .skills-section {
+    padding: 72px 16px;
   }
-  
-  .skill-icon {
-    width: 40px;
-    height: 40px;
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-card {
+    padding: 18px 12px;
+  }
+
+  .skills-header {
+    margin-bottom: 40px;
   }
 }
