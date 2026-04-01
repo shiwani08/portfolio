@@ -117,7 +117,7 @@ export function Hero() {
             <a href="https://www.linkedin.com/in/shiwani-soni-a33b8a21b/" target="_blank" rel="noopener noreferrer" className="social-link">
               <Linkedin size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://x.com/budastrophile" target="_blank" rel="noopener noreferrer" className="social-link">
               <Twitter size={20} />
             </a>
           </div>
