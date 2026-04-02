@@ -91,7 +91,7 @@ const cardVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -101,7 +101,7 @@ const titleVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -120,7 +120,7 @@ export function Skills() {
       <div ref={ref} className="skills-container">
         {/* Header */}
         <motion.div
-          variants={titleVariants}
+          // variants={titleVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="skills-header"
@@ -163,7 +163,7 @@ function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
 
   return (
     <motion.div
-      variants={cardVariants}
+      // variants={cardVariants}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="skill-card"

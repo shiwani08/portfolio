@@ -51,7 +51,7 @@ export default function About() {
         {/* Left accent line */}
         <motion.div
           className="about-accent-line"
-          variants={lineVariant}
+          // variants={lineVariant}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           aria-hidden="true"
@@ -60,7 +60,7 @@ export default function About() {
         {/* Top meta row */}
         <motion.div
           className="about-meta-row"
-          variants={fadeUp}
+          // variants={fadeUp}
           custom={0}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -75,7 +75,7 @@ export default function About() {
         {/* Big decorative number */}
         {/* <motion.span
           className="about-deco-number"
-          variants={fadeUp}
+          // variants={fadeUp}
           custom={0.05}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -87,7 +87,7 @@ export default function About() {
         {/* Title */}
         <motion.h2
           className="about-title"
-          variants={fadeUp}
+          // variants={fadeUp}
           custom={0.1}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -99,7 +99,7 @@ export default function About() {
         <div className="about-content-wrapper">
           <motion.div
             className="about-text-block"
-            variants={fadeUp}
+            // variants={fadeUp}
             custom={0.2}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -137,7 +137,7 @@ export default function About() {
           {/* Image with geometric clip */}
           <motion.div
             className="about-image-wrapper"
-            variants={imageVariant}
+            // variants={imageVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
