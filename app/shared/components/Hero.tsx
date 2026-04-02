@@ -66,7 +66,7 @@ export function Hero() {
               <span className="word" data-word="HI,">HI,</span>
             </span>
             <span className="title-line">
-              <span className="word" data-word="I'M">I'M</span>
+              <span className="word" data-word="I'M">I AM</span>
             </span>
             <span className="title-line accent">
               <span className="word" data-word="SHIWANI">SHIWANI</span>
@@ -150,7 +150,7 @@ export function Hero() {
             <div className="avatar-container">
               <div className="avatar-blob"></div>
               <Image
-                src="/profile.jpg" // Replace with your image
+                src="/images/formal-pic.jpg" // Replace with your image
                 alt="Shiwani"
                 width={400}
                 height={400}
