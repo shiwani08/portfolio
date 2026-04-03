@@ -5,72 +5,101 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Parallax, Mousewheel } from "swiper/modules";
 import Image from "next/image";
 import projectData from "./ProjectData";
-import "../../shared/styles/Projects.css";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-// import "./ExpoSlider.css";
+import "../../shared/styles/Projects.css";
 
 export default function Projects() {
   return (
-    <section className="projects-section py-20">
-      <h2 className="section-title text-white mb-10">Featured Projects</h2>
+    <section className="projects-section">
+      {/* ── Header ── */}
+      <div className="projects-header">
+        <h2 className="section-title">
+          Featured 
+          <span> Projects</span>
+        </h2>
+        <p className="section-label">Selected work / {new Date().getFullYear()}</p>
+      </div>
 
+      {/* ── Swiper ── */}
       <Swiper
-        speed={1000}
+        speed={900}
         parallax={true}
-        mousewheel={true}
+        mousewheel={{ forceToAxis: true }}
         centeredSlides={true}
-        slidesPerView={1.2}
-        spaceBetween={30}
+        slidesPerView={1.15}
+        breakpoints={{
+          640: { slidesPerView: 1.2 },
+          1024: { slidesPerView: 1.35 },
+        }}
+        spaceBetween={24}
         loop={true}
+        navigation={true}
+        pagination={{ clickable: true }}
         modules={[Navigation, Pagination, Parallax, Mousewheel]}
         className="expo-swiper"
       >
-        {projectData.map((project) => (
-          <SwiperSlide key={project.id} className="expo-slide">
-            {/* Background Image with Parallax Effect */}
-            <div className="slide-bg" data-swiper-parallax="20%">
-              <Image
-                src={project.img}
-                alt={project.title}
-                fill
-                className="object-cover opacity-60"
-              />
-            </div>
+        {projectData.map((project, i) => (
+          <SwiperSlide key={project.id}>
+            <div className="expo-slide">
+              {/* ── Decorative index number ── */}
+              <span className="slide-index">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-            {/* Content with Different Parallax Speed */}
-            <div className="slide-content">
-              {/* Wrap text info to separate it from the button area */}
-              <div className="slide-info-wrapper">
-                <h3 className="slide-title" data-swiper-parallax="-300">
+              {/* ── Background image with parallax ── */}
+              <div className="slide-bg" data-swiper-parallax="18%">
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </div>
+
+              {/* ── Content ── */}
+              <div className="slide-content">
+                {/* Category label */}
+                {/* {project.category && (
+                  <span className="slide-category" data-swiper-parallax="-80">
+                    {project.category}
+                  </span>
+                )} */}
+
+                {/* Title */}
+                <h3 className="slide-title" data-swiper-parallax="-280">
                   {project.title}
                 </h3>
-                <div className="slide-desc" data-swiper-parallax="-100">
+
+                {/* Description */}
+                <p className="slide-desc" data-swiper-parallax="-160">
                   {project.desc}
+                </p>
+
+                {/* Skills */}
+                <div className="slide-skills" data-swiper-parallax="-120">
+                  {project.skills.map((skill, idx) => (
+                    <span key={idx} className="skill-tag">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-              </div>
 
-              {/* Skills container with margin-top and bottom */}
-              <div className="slide-skills" data-swiper-parallax="-200">
-                {project.skills.map((skill, index) => (
-                  <span key={index} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-
-              <div className="slide-actions" data-swiper-parallax="-50">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="view-project-btn"
-                  rel="noopener noreferrer"
-                >
-                  View Repository
-                </a>
+                {/* CTA */}
+                <div className="slide-actions" data-swiper-parallax="-60">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="view-project-btn"
+                  >
+                    View Repository
+                  </a>
+                </div>
               </div>
             </div>
           </SwiperSlide>
