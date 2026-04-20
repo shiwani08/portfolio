@@ -8,3 +8,4 @@
 1. hero text - make it responsive 
 2. change the body backgroung
 3. add real links of projects 
+4. change content ui too
