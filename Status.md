@@ -9,3 +9,6 @@
 2. change the body backgroung
 3. add real links of projects 
 4. change content ui too
+
+# socials
+1. add projects on linkedin too
