@@ -12,3 +12,4 @@
 
 # socials
 1. add projects on linkedin too
+2. dummy addons
