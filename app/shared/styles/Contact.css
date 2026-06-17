@@ -1,74 +1,148 @@
+/* ============================================
+   Contact Section — Dark Editorial Theme
+   ============================================ */
+
+/* ── Variables ───────────────────────────── */
+:root {
+  --contact-bg: #06080c;
+  --contact-surface: rgba(255, 255, 255, 0.03);
+  --contact-border: rgba(255, 255, 255, 0.07);
+  --contact-border-focus: rgba(99, 102, 241, 0.45);
+  --contact-accent: #6366f1;
+  --contact-accent-dim: rgba(99, 102, 241, 0.08);
+  --contact-text: #e2e8f0;
+  --contact-muted: #475569;
+}
+
+/* ── Section ─────────────────────────────── */
 .contact-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  background: var(--contact-bg);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 3rem);
+  position: relative;
+  overflow: hidden;
+  font-family: "DM Mono", "Fira Code", monospace;
+}
+
+/* Grid texture */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ambient glow */
+.contact-section::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  left: 40%;
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(99, 102, 241, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* ── Inner wrapper ───────────────────────── */
+.contact-inner {
+  max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-/* Header Styling */
+/* ── Header ──────────────────────────────── */
 .contact-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  color: #1e293b;
+  margin-bottom: 3.5rem;
 }
 
-.contact-header span {
-  color: #8b5cf6; /* Purple color from image */
+.contact-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--contact-accent);
+  margin: 0 0 12px;
 }
 
-/* Main Layout */
+.contact-title {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--contact-text);
+  line-height: 1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.contact-title em {
+  font-style: italic;
+  color: var(--contact-accent);
+}
+
+/* ── Main layout ─────────────────────────── */
 .contact-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  gap: 40px;
+  gap: clamp(2rem, 5vw, 5rem);
 }
 
-.contact-image-side,
-.contact-form-side {
-  flex: 1;
+/* ── Image side ──────────────────────────── */
+.contact-image-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact-illustration {
   width: 100%;
+  max-width: 420px;
   height: auto;
   object-fit: contain;
+  filter: saturate(0.6) brightness(0.85) hue-rotate(200deg);
+  opacity: 0.8;
 }
 
-/* Form Styling */
+/* ── Form side ───────────────────────────── */
+.contact-form-side {
+  width: 100%;
+}
+
+/* ── Form ────────────────────────────────── */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  background: #eef2ff; /* Light blueish tint from image */
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  transition: border-color 0.3s;
+  background: var(--contact-surface);
+  border: 1px solid var(--contact-border);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .input-wrapper:focus-within {
-  border-color: #8b5cf6;
+  border-color: var(--contact-border-focus);
+  background: var(--contact-accent-dim);
 }
 
 .field-icon {
   position: absolute;
-  left: 15px;
-  color: #475569;
-  font-size: 1.1rem;
+  left: 16px;
+  color: var(--contact-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
 }
 
 .input-wrapper input,
@@ -78,8 +152,15 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1rem;
-  color: #1e293b;
+  font-size: 0.875rem;
+  color: var(--contact-text);
+  font-family: "DM Mono", monospace;
+  resize: none;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: var(--contact-muted);
 }
 
 .textarea-wrapper {
@@ -87,46 +168,62 @@
 }
 
 .textarea-wrapper .field-icon {
-  top: 18px;
+  top: 17px;
 }
 
-/* Submit Button */
+/* ── Submit button ───────────────────────── */
 .submit-btn {
   align-self: flex-end;
-  background: #251fc4; /* Deep blue/purple button */
-  color: white;
-  padding: 0.8rem 2.5rem;
-  border-radius: 8px;
+  background: var(--contact-accent);
+  color: #fff;
+  padding: 0.875rem 2.25rem;
+  border-radius: 6px;
   border: none;
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  transition:
-    transform 0.2s,
-    background 0.3s;
-  box-shadow: 0 4px 12px rgba(37, 31, 196, 0.3);
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .submit-btn:hover {
-  background: #1e19a3;
+  background: #4f52d9;
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
 }
 
-/* Mobile Responsive */
+/* ── Responsive ──────────────────────────── */
 @media (max-width: 900px) {
   .contact-container {
-    flex-direction: column;
-    padding: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .contact-image-side {
-    order: 2; /* Image goes below form on mobile */
+    order: 2;
   }
 
   .submit-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .contact-header {
+    margin-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
   }
 }
