@@ -106,7 +106,7 @@
   max-width: 420px;
   height: auto;
   object-fit: contain;
-  filter: saturate(0.6) brightness(0.85) hue-rotate(200deg);
+  /* filter: saturate(0.6) brightness(0.85) hue-rotate(200deg); */
   opacity: 0.8;
 }
 

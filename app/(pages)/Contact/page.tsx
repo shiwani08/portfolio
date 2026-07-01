@@ -22,7 +22,7 @@ export default function Contact() {
           {/* Left Side: Illustration */}
           <div className="contact-image-side">
             <Image
-              src="/mail.svg"
+              src="/images/contact.svg"
               alt="Contact illustration"
               width={500}
               height={400}

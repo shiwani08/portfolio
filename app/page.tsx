@@ -5,6 +5,7 @@ import Skills from "./(pages)/Skills/page";
 import Projects from "./(pages)/Projects/page";
 import Contact from "./(pages)/Contact/page";
 
+
 export default function Home() {
   return (
     <div>
