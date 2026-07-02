@@ -97,7 +97,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="view-project-btn"
                   >
-                    View Repository
+                    View Project
                   </a>
                 </div>
               </div>
